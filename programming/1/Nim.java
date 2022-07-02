@@ -1,34 +1,44 @@
+//Got this code from Group 10 (Rachel, Joshua, Marieke, Mike)
+
 import java.io.*;
 import java.util.*;
 
-public class Nim
-{
-    public static void main( String[] args )
-  {
+public class Nim {
+
+  public static void main(String[] args){
     int stones = 12;
-    int stonesTaken;
+    int stonesTaken = 0;
 
     Scanner input = new Scanner(System.in);
 
     //loop until game ends
-    while(stones > 0){
-    //prompt user for input: num of stones
-    System.out.println("How many stones would you like to remove (1, 2, or 3)?");
-    stonesTaken = input.nextInt();
-    stones -= stonesTaken;
-    System.out.println("Stones remaining " + stones);
-      //calculate # of stones remaining, print
-    if(stones == 0){
-      System.out.println("You win!");
-    }
-    //check for win
-    
-    //machine turn
-      
-    //calculate # of stones remaining, print
+    while(stonesTaken < stones){
 
-    //check for win
-    
-  }
+      System.out.print("Number of stones to take: ");
+        int numStones = input.nextInt(); 
+      stonesTaken += numStones;
+      System.out.println("Number of stones remaining: " + (stones - stonesTaken));
+
+      //check for win
+      if(stonesTaken >= stones){
+        System.out.println("User wins!");
+        break;
+      }
+      
+      //machine turn
+      Random r = new Random();
+      numStones = r.nextInt(3)+1;
+      System.out.println("Computer takes " + numStones + " stones.");
+      //calc number of stones remaining and print
+      stonesTaken += numStones;
+      System.out.println("Number of stones remaining: " + (stones - stonesTaken));
+      
+      //check for win
+      if(stonesTaken >= stones){
+        System.out.println("Computer wins!");
+        break;
+      }
+    }
+    System.out.println("Game over!");
   }
 }
