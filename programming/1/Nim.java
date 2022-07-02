@@ -1,4 +1,5 @@
 //Got this code from Group 10 (Rachel, Joshua, Marieke, Mike)
+//I worked with Group 9 (Saranii, Thea, Jing, Marisa)
 
 import java.io.*;
 import java.util.*;
