@@ -64,7 +64,7 @@ public class Array2DPractice
       {
         for(int col = 0; col < board[row].length; col++)
           {
-           System.out.print(board[row][col]);
+           System.out.print(board[row][col]+" ");
            
           }
       System.out.println();
@@ -155,11 +155,23 @@ public class Array2DPractice
   public static void explodeSquare( char[][] board, int row, int col )
   {
     /* YOUR AWESOME CODE HERE */
-   for(int r = row-1; r <= row + 1; r++)
+  int lowRow = row-1;
+  int highRow = row+1;
+  int lowCol = col-1;
+  int highCol = col+1;
+  if (row==0){lowRow=row;
+            }
+  if (row==board.length-1){highRow=row;
+                         }
+  if (col==0){lowCol=col;
+            }
+  if (col==board[0].length-1){highCol=col;
+                     }
+   for(int r = lowRow; r <= highRow; r++)
       {
-        for(int c = col-1; c <= col+1; c++)
+        for(int c = lowCol; c <= highCol; c++)
           {
-            if( r!= row && c != col)
+            if( r!= row || c != col)
             {
              board[r][c] = 'X';
             }
@@ -234,10 +246,25 @@ public class Array2DPractice
   {
     char[][] b = buildBoard(5,10,'z');
     printBoard(b);
-    setRow(b,2,'M');
+    //setRow(b,2,'M');
     System.out.println();
     printBoard(b);
-    
+    System.out.println();
+    explodeSquare(b,2,2);
+    printBoard(b);
+    System.out.println();
+    explodeSquare(b,0,2);
+    printBoard(b);
+    System.out.println();
+    explodeSquare(b,2,9);
+    printBoard(b);
+    System.out.println();
+    explodeSquare(b,0,0);
+    printBoard(b);
+    System.out.println();
+    explodeSquare(b,4,9);
+    printBoard(b);
+    System.out.println();
     /*
       Note, you can directly set elements in the board
       using array notation like b[3][2]='z' and you
