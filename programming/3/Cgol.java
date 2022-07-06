@@ -70,7 +70,7 @@ public class Cgol
 
 
   //return number of living neigbours of board[r][c]
-  public static int countNeighbors( char[][] board, int row, int col )
+  public static int countNeighbours( char[][] board, int row, int col )
   {
     int count = 0;
     for (int r = row-1; r<=row+1; r++)
@@ -114,8 +114,8 @@ public class Cgol
     //the next gen character is set to a default of the previous gen's char
     char nextGen = board[r][c];
     
-    //check the number of neighbors
-    int n = countNeighbors (board, r, c);
+    //check the number of neighbours
+    int n = countNeighbours (board, r, c);
     
     //check to see if it's alive or dead
     boolean isAlive = false;
@@ -176,18 +176,45 @@ public class Cgol
     return nextGenBoard;
   }
 
+  //randomly assign life to some cells
+  public static void randomLife (char[][] board){
+
+    //traverse through the whole board
+    for (int r = 0; r<board.length; r++)
+    {
+      for (int c = 0; c<board[0].length; c++)
+      {
+        //generate a random number from 0 - 9
+        Random rL = new Random ();
+        int randomLife = rL.nextInt(9);
+
+        //check if the random number is greater than 4
+        if (randomLife > 4)
+        {
+          setCell(board, r, c,'X');
+
+        }
+
+        
+      }
+    } 
+
+    
+  }
 
   public static void main( String[] args )
   {
     char[][] board;
-    board = createNewBoard(5,5);
-    //breathe life into some cells:
-    setCell(board, 0, 0, 'X');
-    setCell(board, 0, 1, 'X');
-    setCell(board, 1, 0, 'X');
-    setCell(board, 3, 4, 'X');
-    setCell(board, 4, 3, 'X');
-    setCell(board, 3, 3, 'X');
+    board = createNewBoard(10,10);
+    //breathe life into some cells with random selection:
+    randomLife (board);
+    //breathe life into some cells with selected cells:
+    // setCell(board, 0, 0, 'X');
+    // setCell(board, 0, 1, 'X');
+    // setCell(board, 1, 0, 'X');
+    // setCell(board, 3, 4, 'X');
+    // setCell(board, 4, 3, 'X');
+    // setCell(board, 3, 3, 'X');
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
@@ -197,7 +224,7 @@ public class Cgol
     System.out.println("--------------------------\n\n");
 
     //repeat the gen multiple times
-    for (int i= 0; i<6; i++)
+    for (int i= 0; i<10; i++)
     {
       board = generateNextBoard(board);
       System.out.println("Gen X+ "+ (i+1));
