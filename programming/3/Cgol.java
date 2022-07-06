@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Conway's Game of Life by Team AreWeSentientYet?
  * Ed Hawkins
- * collaborators: First Last, First Last
+ * collaborators: Thea Williams, Joel Bianchi
  */
 
 /**
@@ -15,7 +15,7 @@ import java.util.*;
    * Each cell with >3 neighbours will die from overpopulation.
    * Every cell with <2 neighbours will die from isolation.
    Births:
-   * Each dead cell adjacent to exactly 3 living neighbours is a birth cell. It will come alive next generation.
+   * Each dead cell adjacent to exactly 3 living neighbours is a birth cell. It will come alive in next generation.
    NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation.
 */
 
@@ -25,28 +25,81 @@ public class Cgol
   //create, initialize, and return  empty board (all cells dead)
   public static char[][] createNewBoard( int rows, int cols )
   {
+    //construct a new char 2D array
+    char[][] board = new char[rows][cols];
 
+    //traverse through the entire 2D array
+    for (int r = 0; r<board.length; r++)
+    {
+      for (int c = 0; c<board[0].length; c++)
+      {
+        //Assign a dot to the dead cells
+        board[r][c] = '.';
+      }
+    }
+    
+    //return the 2D array
+    return board;
   }
 
 
   //print the board to the terminal
   public static void printBoard( char[][] board )
   {
-
+    //traverse through entire array
+    for (int r = 0; r<board.length; r++)
+    {
+      for (int c = 0; c<board[0].length; c++)
+      {
+        //print out each cell's char
+        System.out.print (board[r][c]);
+      }
+      //at the end of each row, put a line break
+      System.out.println ();
+    } 
+    
   }
 
 
   //set cell (r,c) to val
   public static void setCell( char[][] board, int r, int c, char val )
   {
-
+    board[r][c] = val;
+    
   }
 
 
   //return number of living neigbours of board[r][c]
-  public static int countNeighbours( char[][] board, int r, int c )
+  public static int countNeighbors( char[][] board, int row, int col )
   {
+    int count = 0;
+    for (int r = row-1; r<=row+1; r++)
+    {
+        if (r<0) //if r cycles above top row
+          continue;
+        if (r >= board.length) //bottom boundary
+          break;
+      for (int c = col-1; c<=col+1; c++)   
+      {
+        if (c <0) //left bound
+          continue;
+        if (c >= board[0].length) //right bound
+          continue;
 
+        //don't count the actual middle cell
+        if (!(r == row && c == col)){
+          //check if the cell is alive
+          if (board[r][c] == 'X')
+          {
+            //increment the count
+            count++;
+          }
+        }
+        //System.out.print(board[row][col] + " "); 
+      }
+    
+   }  
+    return count;
   }
 
 
@@ -58,6 +111,44 @@ public class Cgol
   public static char getNextGenCell( char[][] board,int r, int c )
   {
 
+    //the next gen character is set to a default of the previous gen's char
+    char nextGen = board[r][c];
+    
+    //check the number of neighbors
+    int n = countNeighbors (board, r, c);
+    
+    //check to see if it's alive or dead
+    boolean isAlive = false;
+    if (board[r][c] == 'X')
+    {
+      isAlive = true;
+    }
+
+    //determine if the next gen cell is alive or dead
+    //if alive --> when do we kill it?
+    //* Every cell with <2 neighbours will die from isolation.
+    if (isAlive && n<2)
+    {
+      nextGen = '.';
+    }
+    
+    //* Each cell with >3 neighbours will die from overpopulation.
+    if (isAlive && n>3)
+    {
+      nextGen = '.';
+    }
+
+    //if it's dead --> bring to life?
+    //* Each dead cell adjacent to exactly 3 living neighbours is a birth cell. It will come alive in next generation.
+    if (!isAlive && n==3)
+    {
+      nextGen = 'X';
+    }
+
+    //keep it otherwise (see how the nextGen was initialized with default value on line 115)
+    
+    
+    return nextGen;
   }
 
 
@@ -65,14 +156,31 @@ public class Cgol
   public static char[][] generateNextBoard( char[][] board )
   {
 
+    //declare and construct the next gen board (same size as the original board)
+    int row = board.length;
+    int col = board[0].length;
+    char[][] nextGenBoard = new char[row][col]; 
+    //char[][] nextGenBoard = board;
+
+    //for loop below traverses the board
+    for (int r = 0; r<board.length; r++)
+    {
+      for (int c = 0; c<board[0].length; c++)
+      {
+        //get the next gen's char --> put it in the new board
+        nextGenBoard[r][c] = getNextGenCell(board, r, c);
+      }
+    }
+
+    //return the next gen array
+    return nextGenBoard;
   }
 
 
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     char[][] board;
-    board = createNewBoard(25,25);
+    board = createNewBoard(5,5);
     //breathe life into some cells:
     setCell(board, 0, 0, 'X');
     setCell(board, 0, 1, 'X');
@@ -88,7 +196,7 @@ public class Cgol
     System.out.println("Gen X+1:");
     printBoard(board);
     System.out.println("--------------------------\n\n");
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
   }//end main()
 
 }//end class
