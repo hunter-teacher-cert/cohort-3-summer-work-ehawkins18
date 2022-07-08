@@ -3,7 +3,7 @@ import java.util.*;
 
 
 /**
- * Time class by Team LucidThinkeren
+ * Time class by Team Timex
  * Ed Hawkins
  * collaborators: Thea, Elizabeth, Chris
  */

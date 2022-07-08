@@ -1,4 +1,4 @@
-**
+/**
  * Rational class by Team BangPi
  * First Last
  * collaborators: First Last, First Last
@@ -34,6 +34,8 @@ public class Rational
   public Rational()
   {
     /* YOUR ELEGANT CODE HERE */
+    this._numerator=0;
+    this._denominator=1;
   }
 
 
@@ -42,7 +44,16 @@ public class Rational
   // if an invalid denominator is attempted, should print a message and set the number to 0/1
   public Rational( int n, int d )
   {
-    /* YOUR ELEGANT CODE HERE */
+    this._numerator=n;
+		this._denominator=d;
+
+		if(d==0){
+		  this._numerator=0;
+    	this._denominator=1;
+			System.out.println("Invalid denominator");
+			
+		}
+		
   }
 
 
@@ -50,7 +61,10 @@ public class Rational
   // returns a string representation of the rational number (formatting of your choice)
   public String toString()
   {
+    return(_numerator + "/" + _denominator);
+    
     /* YOUR ELEGANT CODE HERE */
+    
   }
 
 
@@ -59,7 +73,13 @@ public class Rational
   // uses the most precise floating point primitive
   public double floatValue()
   {
-    /* YOUR ELEGANT CODE HERE */
+    // Ex:
+    // converting an int to String ->
+    // _denominator + ""
+    return (1.0*_numerator/_denominator);  /* YOUR ELEGANT CODE HERE */
+
+    // Alternate way: Called "type casting"
+    // return (double) _numerator / _denominator;
   }
 
 
@@ -71,7 +91,11 @@ public class Rational
   // need not reduce
   public void multiply( Rational r )
   {
-    /* YOUR ELEGANT CODE HERE */
+    this._numerator=this._numerator * r._numerator;
+		//this._numerator*=r.numerator; <- shorthand 
+		this._denominator=this._denominator * r._denominator;
+		
+    
   }
 
 
@@ -79,7 +103,18 @@ public class Rational
   // same as multiply, except operation is division
   public void divide( Rational r )
   {
-    /* YOUR ELEGANT CODE HERE */
+		if(r._denominator==0){
+		  System.out.println("Invalid denominator");	
+		} 
+		
+		else {
+			this._numerator=this._numerator/r._numerator;
+			this._denominator=this._denominator/r._denominator;
+			
+		}
+	
+		
+		
   }
 
 }//end class
