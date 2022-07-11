@@ -36,15 +36,15 @@ public class SuperArray
   //overloaded constructor -- allows specification of initial capacity
   public SuperArray( int size )
   {
+		//init underlying/inner storage of specified capacity
+    /* YOUR SIMPLE+SMART CODE HERE */
     
 		data=new int [size];
 		
-		//init underlying/inner storage of specified capacity
+    //init instance vars
     /* YOUR SIMPLE+SMART CODE HERE */
 
 		numberElements = 0;
-    //init instance vars
-    /* YOUR SIMPLE+SMART CODE HERE */
 
   }
 
@@ -61,7 +61,7 @@ public class SuperArray
 
 
   // ~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~
-  public void add( int value )
+  public void add(int value )
   {
     // test to see if we need to grow, then grow
     /**
@@ -75,7 +75,8 @@ public class SuperArray
 
     // add item
     /* YOUR SIMPLE+SMART CODE HERE */
-
+    data[numberElements] = value;
+    numberElements++;
 
     // increment numberElements
     /* YOUR SIMPLE+SMART CODE HERE */
@@ -87,7 +88,8 @@ public class SuperArray
   {
     //return whether this SuperArray instance is empty
     /* YOUR SIMPLE+SMART CODE HERE */
-    return (false);
+    return (numberElements==0);
+    
   }
 
 
@@ -95,7 +97,7 @@ public class SuperArray
   {
     //return item at index
     /* YOUR SIMPLE+SMART CODE HERE */
-    return (-9999);
+    return (data[index]);
   }
 
 
@@ -103,7 +105,14 @@ public class SuperArray
   {
     //return stringified version of this Object
     /* YOUR SIMPLE+SMART CODE HERE */
-    return ("$tring");
+    String s = "";
+    s = "Size: " + this.data.length;
+    s = s + " LastItem: " + numberElements + "  Data: ";
+    for (int i = 0; i < numberElements; i++) {
+      s = s + data[i] + ", ";
+    }
+    s = s + "\n";
+    return s;
   }//end toString()
 
 
@@ -127,9 +136,13 @@ public class SuperArray
   {
     // shift items down to remove the item at index
     /* YOUR SIMPLE+SMART CODE HERE */
-
+    for (int i = index; i<(data.length-2); i++){
+      data[i]=data[i+1];
+    }
+    data[(data.length-1)]=0;
     // subtract fom numElements;
     /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements --;
   }
 
 
@@ -140,10 +153,14 @@ public class SuperArray
 
     // shift elements toward the end of the array
     /* YOUR SIMPLE+SMART CODE HERE */
-
+    for (int i = index; i<(data.length-2); i++){
+      data[i+1]=data[i];
+    }
     // insert new element
     /* YOUR SIMPLE+SMART CODE HERE */
-
+    data[index] = value;
+    numberElements++;
+    
     // increment numElements
     /* YOUR SIMPLE+SMART CODE HERE */
   }

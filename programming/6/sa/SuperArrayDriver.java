@@ -11,13 +11,11 @@ public class SuperArrayDriver
     System.out.println(sa);
     System.out.println("Testing isEmpty (should be true)");
     System.out.println(sa.isEmpty());
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -----------------------------------------------------------
     // YOUR HOMEGROWN/HOUSEMADE/ROLL-YOUR-OWN TEST METHODS HERE...
     // -----------------------------------------------------------
     //precondition: newly-instantiated SuperArray of default capacity
     System.out.println("Testing overfill (calling grow() in add)");
-    for (int i=0; i<15; i++) {
+    for (int i=0; i<7; i++) {
       sa.add(i);
     }//for i
     System.out.println(sa);
@@ -27,8 +25,11 @@ public class SuperArrayDriver
     System.out.println(sa);
     sa.add(0, 100);
     System.out.println(sa);
-    sa.add(17, 100);
+    sa.add(9, 100);
     System.out.println(sa);
+    System.out.println(sa.get(5));
+    System.out.println(sa.debug());
+    // -----------------------------------------------------------
     System.out.println("\nTesting remove at 0, 5, and 15 (end)");
     sa.remove(0);
     System.out.println(sa);
@@ -36,8 +37,8 @@ public class SuperArrayDriver
     System.out.println(sa);
     sa.remove(15);
     System.out.println(sa);
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+  
   }//main
 
 }//class SuperArrayDriver
+    
