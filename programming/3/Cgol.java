@@ -3,8 +3,8 @@ import java.util.*;
 
 /**
  * Conway's Game of Life by Team AreWeSentientYet?
- * First Last
- * collaborators: First Last, Joel Bianchi
+ * Ed Hawkins
+ * collaborators: Thea Williams, Joel Bianchi
  */
 
 /**
@@ -227,7 +227,7 @@ public class Cgol
     for (int i= 0; i<10; i++)
     {
       board = generateNextBoard(board);
-      System.out.println("Gen X+ "+ (i+1));
+      System.out.println("Gen X + "+ (i+1));
       printBoard(board);
       System.out.println("--------------------------\n\n");
     }
