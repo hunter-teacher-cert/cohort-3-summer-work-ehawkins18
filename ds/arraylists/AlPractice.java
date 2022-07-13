@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+/** Ed Hawkins
+
 /** Methods to write
 Basic level:
 ------------
@@ -30,8 +32,22 @@ public class AlPractice{
   - A new ArrayList of Integers with each value being a random
     number between 0 and maxval (not including maxval).
   */
+
+  // buildRandomList(5,10)
   public static ArrayList<Integer> buildRandomList(int size, int maxval){
-    return null;//placeholder to compile.
+    ArrayList<Integer> newList = new ArrayList<Integer>(size);
+    Random random = new Random();
+    for (int i  = 0; i < size; i++){      
+      newList.add(random.nextInt(maxval));
+
+      //old: newList[i] = 
+      //new: newList.get(i) = 
+
+      //What goes in the parenthesis is the value that we want added: -- no equals
+      //newList.add(random.nextInt(maxval));
+    }
+    //System.out.println
+    return newList;
   }
 
   /**
@@ -41,8 +57,15 @@ public class AlPractice{
   - The sum of all of the elements of the ArrayList.
   */
   public static int sumOfList(ArrayList<Integer> dataList){
-    return 0;//placeholder to compile.
-  }
+    int sum = 0;
+    for (int i = 0; i<dataList.size(); i++){
+      sum = sum + dataList.get(i);
+    }
+    return sum;   
+    }
+    
+
+  
 
   /**
   Parameters:
@@ -58,6 +81,9 @@ public class AlPractice{
   */
   public static void swapElements(ArrayList<Integer> dataList, int index1,int index2){
 
+    int temp = dataList.get(index1);
+    dataList.set(index1,dataList.get(index2));
+    dataList.set(index2,temp);
   }
 
   /**
@@ -69,6 +95,12 @@ public class AlPractice{
   */
   public static void removeValue(ArrayList<Integer> dataList, int valueToRemove){
 
+    for(int i=0; i < dataList.size();i++){
+      if(dataList.get(i)==valueToRemove){
+        dataList.remove(i);
+        i--;//decrement counter to avoid skipping an element when a value is removed. Without this fix a repeated value will not be removed
+      }
+    }
   }
 
 
@@ -84,7 +116,8 @@ public class AlPractice{
   - The parameter ArrayLists should not be modified.
   */
   public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    return null;//placeholder to compile.
+    ArrayList<Integer> ListC = new ArrayList<Integer>(size);
+    return ListC;//placeholder to compile.
   }
 
   /** zipLists
@@ -103,29 +136,42 @@ public class AlPractice{
 
 
 
-
+  
   public static void main(String[] args) {
 
     ArrayList<Integer> al;
+   
 
-    // Uncomment these to test buildRandomList
-    //al = buildRandomList(10,100);
-    //System.out.println(al);
+    //Uncomment these to test buildRandomList
+    al = buildRandomList(10,100);
+    System.out.println();
+    System.out.println("Call buildRandomList (10,100):");
+    System.out.println(al);
+    System.out.println();
 
-    // Uncomment these to test swapElements
-    // swapElements(2,6);
-    //System.out.println(al);
+    System.out.println("The sum of the list is: " + sumOfList(al));
+    System.out.println();
+
+    //Uncomment these to test swapElements
+    swapElements(al,2,6); // NOTE: had to include al
+    System.out.println("After switching elements 2 and 6:");
+    System.out.println(al);
+    System.out.println();
 
     // Uncomment these to test removeValue
-    // al.add(5);
-    // al.add(10);
-    // al.add(5);
-    // al.add(13);
-    // al.set(2,5);
-    // al.set(3,5);
-    // System.out.println(a);
-    // removeValue(al,5);
-    // System.out.println(a);
+    al.add(5);
+    al.add(10);
+    al.add(5);
+    al.add(5);
+    al.add(13);
+    al.set(2,5);
+    al.set(3,5);
+    System.out.println("Add some 5's:");
+    System.out.println(al); // needed al, not a
+    System.out.println();
+    removeValue(al,5);
+    System.out.println("Remove all 5's:");
+    System.out.println(al); // needed al, not a
 
   }
 
