@@ -1,2 +1,2 @@
 language = "bash"
-run = "cd ds/arraylists;javac AlPractice.java;java AlPractice"
+run = "cd ds/pointers;javac Node.java Driver.java;java Driver"
