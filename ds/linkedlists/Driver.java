@@ -21,5 +21,14 @@ public class Driver{
     System.out.println(l);
     l.remove(3);
     System.out.println(l);
+    String array[];
+    array = new String [l.size()];
+    array = l.toArray();
+    System.out.print("[");
+    for(int i=0;i<(l.size()-1);i++){
+      System.out.print(array[i]+", ");
+    }
+    System.out.print(array[(l.size()-1)]+"]");
+    
   }
 }

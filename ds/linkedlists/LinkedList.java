@@ -142,7 +142,22 @@ public class LinkedList{
   the array.
   */
   public String[] toArray(){
-    return null;
+    Node walker=head;
+    int size=0;
+    while(walker != null){
+      walker=walker.getNext();
+      size++;
+    }
+    String result[]; 
+    result = new String[size];
+    walker=head;
+    int i=0;
+    while(walker != null){
+      result[i] = walker.getData();
+      walker = walker.getNext();
+      i++;
+    }
+    return result;
   }
 
 
