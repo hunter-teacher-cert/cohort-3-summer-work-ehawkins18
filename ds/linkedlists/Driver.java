@@ -17,5 +17,9 @@ public class Driver{
     System.out.println(l.indexOf("five"));
     System.out.println(l.indexOf("one"));
     System.out.println(l.get(3));
+    l.add(3,"2.5");
+    System.out.println(l);
+    l.remove(3);
+    System.out.println(l);
   }
 }
