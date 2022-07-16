@@ -34,28 +34,52 @@ public class LinkedList{
   Adds a new node containing value to the front of the list.
   */
   public void add(String value){
-
+    Node addNode = new Node(value,head);
+    head = addNode;
   }
 
   /**
   Returns the String in the node at location index.
   */
   public String get(int index){
-    return "";
+    Node walker = head;
+    for(int i=0; i<=index; i++ ){
+      
+      if (i == index){
+        return walker.getData();
+      }
+      
+      walker = walker.getNext();
+      
+    }
+    
+    return "Value not found.";
   }
 
   /**
   Return a string representation of the list
   */
   public String toString(){
-    return "";
+    Node walker = head;
+    String result = "";
+    while (walker != null){
+      result+=walker.toString();
+      walker=walker.getNext();
+    }
+    return result;
   }
 
   /**
   returns the number of elements in the list
   */
   public int size(){
-    return 0;
+    Node walker=head;
+    int result=0;
+    while(walker != null){
+      walker=walker.getNext();
+      result++;
+    }
+    return result;
   }
 
 
@@ -72,7 +96,7 @@ public class LinkedList{
   "a"-> "z" -> "b" -> "c" -> "d"
   */
   public void add(int index, String value){
-
+    
   }
 
 
@@ -85,7 +109,19 @@ public class LinkedList{
   indexOf("d") would return 3 since "d" is at location 3.
   */
   public int indexOf(String value){
-    return 0;
+    Node walker = head;
+    int result = -1;
+    int counter = 0;
+    while(walker != null){
+      if(walker.getData() == value){
+        result = counter;
+        break;
+        }
+      walker=walker.getNext();
+      counter++;
+      
+    }
+    return result;
   }
 
 
