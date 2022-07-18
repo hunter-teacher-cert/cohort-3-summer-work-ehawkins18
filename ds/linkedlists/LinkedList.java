@@ -98,15 +98,11 @@ public class LinkedList{
   public void add(int index, String value){
     Node insertNode = new Node(value);
     Node walker = head;
-    Node current = null;
-    walker= head;
-    current = null;
-    for (int i = 0; i< index; i++){
-      current = walker;
+    for (int i = 0; i< (index-1); i++){
       walker = walker.getNext();
     }
-    current.setNext(insertNode);
-    insertNode.setNext(walker);
+    insertNode.setNext(walker.getNext());
+    walker.setNext(insertNode);
   }
 
 
