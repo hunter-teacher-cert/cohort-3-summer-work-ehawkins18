@@ -1,3 +1,4 @@
+/*
 //heading
 
 import java.io.*;
@@ -88,3 +89,4 @@ public class SuperArray {
 	
   }
 }
+*/
