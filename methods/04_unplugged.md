@@ -22,4 +22,5 @@ Students should know what variables and operators are. The activity is written f
 
 ### Related resources
 * [Link to the Slide Deck](https://docs.google.com/presentation/d/1sDlMS2IVAtT45zQeBRFI2a9d5kHGu29wZvYlYOvmP_c/edit?usp=sharing)
+*  [Link to the Student Self-paced Deck](https://docs.google.com/presentation/d/1Y8A5Yw-xOqkOiveYV8ujVBXalkB0N3NCwe6zdSv5Tk4/edit?usp=sharing)
   
