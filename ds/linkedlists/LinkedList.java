@@ -96,6 +96,10 @@ public class LinkedList{
   "a"-> "z" -> "b" -> "c" -> "d"
   */
   public void add(int index, String value){
+    if(index == 0){
+      add(value);
+    }
+    else{
     Node insertNode = new Node(value);
     Node walker = head;
     for (int i = 0; i< (index-1); i++){
@@ -103,6 +107,7 @@ public class LinkedList{
     }
     insertNode.setNext(walker.getNext());
     walker.setNext(insertNode);
+    }
   }
 
 
@@ -169,13 +174,9 @@ public class LinkedList{
   */
   public void remove(int index){
     Node walker = head;
-    Node current = null;
-    walker= head;
-    current = null;
-    for (int i = 0; i< index; i++){
-      current = walker;
+    for (int i = 0; i< index-1; i++){
       walker = walker.getNext();
     }
-    current.setNext(walker.getNext());
+    walker.setNext(walker.getNext().getNext());
   }
   }
