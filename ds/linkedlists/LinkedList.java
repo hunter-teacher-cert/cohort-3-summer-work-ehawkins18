@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
-
+//Ed Hawkins
+//Room 10: Christine Marra, Marisa Shuman, Sue Seccafico, Ed H.
 /**
 For all attempted methods, make sensible decisions for error and
 edge cases (such as indexing out of bounds).

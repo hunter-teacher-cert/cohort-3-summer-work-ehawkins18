@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
-
-/** Ed Hawkins
-
+//Ed Hawkins
+//Room 10: Christine Marra, Marisa Shuman, Sue Seccafico, Ed H.
 /** Methods to write
 Basic level:
 ------------
@@ -58,15 +57,11 @@ public class AlPractice{
   */
   public static int sumOfList(ArrayList<Integer> dataList){
     int sum = 0;
-    for (int i = 0; i<dataList.size(); i++){
+    for (int i  = 0; i < dataList.size(); i++){      
       sum = sum + dataList.get(i);
-    }
-    return sum;   
-    }
-    
-
-  
-
+  }
+    return sum;//placeholder to compile.
+  }
   /**
   Parameters:
   - dataList - an ArrayList of Integers
@@ -80,10 +75,12 @@ public class AlPractice{
   - No other values should be modified.
   */
   public static void swapElements(ArrayList<Integer> dataList, int index1,int index2){
-
     int temp = dataList.get(index1);
-    dataList.set(index1,dataList.get(index2));
-    dataList.set(index2,temp);
+    int temp2 = dataList.get(index2);
+
+    dataList.add(index1,temp2);
+    dataList.add(index2,temp);
+
   }
 
   /**
@@ -94,11 +91,9 @@ public class AlPractice{
   - The dataList is modified such that all occurances of valueToRemove are removed.
   */
   public static void removeValue(ArrayList<Integer> dataList, int valueToRemove){
-
-    for(int i=0; i < dataList.size();i++){
-      if(dataList.get(i)==valueToRemove){
-        dataList.remove(i);
-        i--;//decrement counter to avoid skipping an element when a value is removed. Without this fix a repeated value will not be removed
+      for (int i=dataList.size()-1; i>0; i--) {
+        if (dataList.get(i) == valueToRemove) {
+          dataList.remove(i);
       }
     }
   }
@@ -115,9 +110,15 @@ public class AlPractice{
   Postconditions:
   - The parameter ArrayLists should not be modified.
   */
-  public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    ArrayList<Integer> ListC = new ArrayList<Integer>(size);
-    return ListC;//placeholder to compile.
+  public static ArrayList<Integer>sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
+   
+    ArrayList <Integer> sumArrays = new ArrayList <Integer>(ListA.size());
+
+    for (int i=0; i<ListA.size(); i++) {
+      int sum = ListA.get(i) + ListB.get(i);
+      sumArrays.add(i,sum);
+    }
+    return sumArrays;
   }
 
   /** zipLists
@@ -131,12 +132,22 @@ public class AlPractice{
   - The parameter ArrayLists should not be modified.
   */
   public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    return null;//placeholder to compile.
+       ArrayList <Integer> zipList = new ArrayList <Integer>(ListA.size()*2);
+
+    for (int i=0; i<ListA.size(); i++) {
+      for (int j=0; i<ListB.size(); i++){
+        zipList.add(i,ListA.get(i));
+        zipList.add(2*i,ListB.get(j));
+      }
+        
+      }
+    
+    return zipList;//placeholder to compile.
   }
 
 
 
-  
+  //buildRandomList(5,10)
   public static void main(String[] args) {
 
     ArrayList<Integer> al;
@@ -144,35 +155,33 @@ public class AlPractice{
 
     //Uncomment these to test buildRandomList
     al = buildRandomList(10,100);
-    System.out.println();
-    System.out.println("Call buildRandomList (10,100):");
     System.out.println(al);
-    System.out.println();
-
-    System.out.println("The sum of the list is: " + sumOfList(al));
-    System.out.println();
-
+    System.out.println("Sum of List");
+    System.out.println(sumOfList(al));
     //Uncomment these to test swapElements
     swapElements(al,2,6); // NOTE: had to include al
-    System.out.println("After switching elements 2 and 6:");
     System.out.println(al);
-    System.out.println();
 
     // Uncomment these to test removeValue
     al.add(5);
     al.add(10);
     al.add(5);
-    al.add(5);
     al.add(13);
     al.set(2,5);
     al.set(3,5);
-    System.out.println("Add some 5's:");
     System.out.println(al); // needed al, not a
-    System.out.println();
     removeValue(al,5);
-    System.out.println("Remove all 5's:");
     System.out.println(al); // needed al, not a
 
+    ArrayList<Integer> alist;
+    ArrayList<Integer> blist;
+    alist = buildRandomList(5,70);
+    blist = buildRandomList(2,70);
+
+    System.out.println(alist);
+    System.out.println(blist);
+    System.out.println("Zip List");
+    System.out.println(zipLists(alist,blist));
   }
 
-}
+} 
