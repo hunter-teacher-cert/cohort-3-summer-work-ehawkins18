@@ -92,14 +92,20 @@ public class SortSearchDriver {
   
   	// System.out.println("\nLocation of value 22 in list via Recursive Binary Search: (should return -1)");
    //  System.out.println(ss.binarySearchRecursive(22, 0, ss.getSize() - 1));
-  ArrayList<Integer> a= ss.buildIncreasingList(20);
+  	ArrayList<Integer> a= ss.buildIncreasingList(20);
 	System.out.println(a);
+	ArrayList<Integer> list1= ss.buildIncreasingList(5);
+	System.out.println(list1);
+
 
 	// build a second Arralist here
 
+	ArrayList<Integer> list2= ss.buildIncreasingList(15);
+	System.out.println(list2);
 
 	// test your merge routine here
-
+	ArrayList<Integer> result = ss.merge(list1,list2);
+	System.out.println(result);
   }
   
 }
