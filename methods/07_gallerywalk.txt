@@ -2,34 +2,23 @@ Ed Hawkins
 Methods Summer 2022
 GALLERY TOUR LOG
 
-
-USAGE OF TOP SECTION: 
-* Fill in discoveries etc section as you go, or after your is complete.
-* Replicate the 
-* Delete these instructions once read.
 ====================================================
 DISCOVERIES:
-* any cool tips/tricks/hacks you learned
-* 1 per line, please
 
 How to add an image...from Sarah
 How to use markdown...from the provided templates and a cheat sheet
 
 LINGERING QUESTIONS:
-* 1 per line, please
 
 Can we link to a "raw" file and have the markdown formatting?
 
 COMMENTS/CONCERNS/OTHER:
-* 1 per line, please
-====================================================
 
+Lots of creative people in our cohort.
 
-USAGE OF BOTTOM SECTION: 
-* For any site you deem notable, add an entry using the format below
 ====================================================
-notable site: Waynes's site
+notable site: Waynes's site (ironically it wasn't working, but he shared his screen and it looked great)
 URL: https//:waynetobias.github.io/nycscertweb
-notable aspect:Great use of images
-what is cool about this site:Very personalized
+notable aspect: Great use of images
+what is cool about this site: Very personalized
 -------------------------------------
