@@ -4,6 +4,17 @@ public class ExpressionTree{
     //You must write this method:
     //Calculate the value of the entire tree
     public double evaluate(){
+    if(isValue()){
+      return value;
+    }
+    else{
+
+      apply(left.value, right.value, operator);
+    }
+      
+      
+      
+      
       return 10000000000000.0;//replace this
     }
 
@@ -17,7 +28,11 @@ public class ExpressionTree{
     //"(12.5*(5.0-8.0)) //a tree that is the product of the previous two example trees
     //"(((2.0+1.0)/(8.0*0.43)) - 1.0)" //a tree with more
     public String toString(){
-     return "replace this with your code";
+    if(isValue())
+    {
+      return value + "";
+    }
+     return "(" + left + operator + right + ")";
     }
 
 
@@ -42,7 +57,7 @@ public class ExpressionTree{
   }
 
   //Return true when the node is a value, false when it is an operator
-  //when the children are null, the current tree is an operator
+  //when the children are null, the current tree is a value
   private boolean isValue(){
     return left==null && right ==null;
   }

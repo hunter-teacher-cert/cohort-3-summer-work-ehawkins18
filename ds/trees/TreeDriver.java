@@ -15,6 +15,10 @@ public class TreeDriver{
     ExpressionTree five = new ExpressionTree(5.0);
     ExpressionTree ten = new ExpressionTree(10.0);
 
+    ExpressionTree add = new ExpressionTree('+', five, ten);
+    ExpressionTree multiply = new ExpressionTree('*', five, ten);
+
+    ExpressionTree nextStep = new ExpressionTree('-', add, ten);
 
     //Check your toString for single value trees.
     System.out.println("Should print 1.0 2.0 3.0 4.0 5.0 10.0 on separate lines");
@@ -24,6 +28,9 @@ public class TreeDriver{
     System.out.println(four);
     System.out.println(five);
     System.out.println(ten);
+    System.out.println(add);
+    System.out.println(nextStep);
+    
 
     //check your evaluate:
 
@@ -34,6 +41,8 @@ public class TreeDriver{
     System.out.println(four.evaluate()==4.0);
     System.out.println(five.evaluate()==5.0);
     System.out.println(ten.evaluate()==10.0);
+    System.out.println(nextStep.evaluate()==5.0);
+    System.out.println(add.evaluate()==15.0);
 
 
     //2. Trees with children
