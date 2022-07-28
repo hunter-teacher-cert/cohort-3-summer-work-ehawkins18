@@ -9,13 +9,13 @@ public class ExpressionTree{
     }
     else{
 
-      apply(left.value, right.value, operator);
+      return apply(left.evaluate(), right.evaluate(), operator);
     }
       
       
       
       
-      return 10000000000000.0;//replace this
+     // return 10000000000000.0;//replace this
     }
 
     //You must write this method:
