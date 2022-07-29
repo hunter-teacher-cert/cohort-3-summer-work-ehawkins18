@@ -1,0 +1,10 @@
+Ed Hawkins
+The PhoneBook will be an ArrayList of person objects.
+Each person object contains 3 strings:
+  public class person {
+    private String lastName;
+    private String firstName;
+    private String phoneNumber;
+The PhoneBook will be sorted by lastName in ascending alphabetical order.
+add: The add method will add a person object to the PhoneBook in its proper place (alphabetical order by lastName).
+find: The find method will perform a binary search on the PhoneBook by lastName.
