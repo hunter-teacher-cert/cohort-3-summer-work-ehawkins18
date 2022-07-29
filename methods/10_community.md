@@ -16,7 +16,7 @@ School Attributes:
 ### System: STUDENT RECRUITMENT
 
 #### How It Works
-Develop systems to promote our school's Computer Science CTE program to prospective students and their families.
+Develop systems to promote our school's Computer Science CTE program to prospective students and their families with a focus on under-represented student groups (esp. female, African American, LatinX, and free/reduced lunch).
 * Develop collateral materials
   * Update brochure
   * Update recruitment section of school website
